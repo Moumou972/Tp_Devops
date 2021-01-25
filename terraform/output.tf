@@ -6,6 +6,6 @@ output "ip_instance_b"{
    value = aws_eip.ip_instance_b.public_ip
 }
 
-output "ip_instance_c_"{
+output "ip_instance_c"{
    value = aws_eip.ip_instance_c.public_ip
 }
