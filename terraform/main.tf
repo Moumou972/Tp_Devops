@@ -47,7 +47,7 @@ resource "aws_security_group" "security_group_moulanier_b" {
 
   ingress {
     cidr_blocks = [
-      "10.0.0.0/16"
+      "10.10.10.0/16"
     ]
 
     from_port = 22
@@ -79,7 +79,6 @@ resource "aws_instance" "instance_moulanier_a" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.type_instance
   key_name= var.key_ssh
- # security_groups = ["${aws_security_group.security_group_moulanier_a}"]
   subnet_id = aws_subnet.private_subnet_moulanier_a.id
   tags = {
     Name = "instance_moulanier_a"
@@ -91,7 +90,6 @@ resource "aws_instance" "instance_moulanier_b" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.type_instance
   key_name= var.key_ssh
- # security_groups = ["${aws_security_group.security_group_moulanier_b}"]
   subnet_id = aws_subnet.private_subnet_moulanier_b.id
   tags = {
     Name = "instance_moulanier_b"
@@ -103,7 +101,6 @@ resource "aws_instance" "instance_moulanier_c" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.type_instance
   key_name= var.key_ssh
-  #security_groups = ["${aws_security_group.security_group_moulanier_b}"]
   subnet_id = aws_subnet.private_subnet_moulanier_b.id
   tags = {
     Name = "instance_moulanier_c"
