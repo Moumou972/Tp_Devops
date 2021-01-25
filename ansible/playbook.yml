@@ -1,0 +1,14 @@
+- name: Install 
+  hosts: web 
+  become: yes
+  gather_facts: false
+
+  tasks:
+     - name: install nginx
+       apt:
+          name: nginx
+          update_cache: true
+     
+     - name: connection ssh
+       shell : ssh -p 2222 -f ubuntu@52.47.159.30 -L 2500:52.47.197.222:80
+
